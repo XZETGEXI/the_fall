@@ -6,11 +6,11 @@ from itertools import cycle
 
 W, H = os.get_terminal_size()
 
-nb_bord = W // 2
+nb_bord = W // 4
 
 MAX_LEN = W // 2
 
-VITESSE = 25
+VITESSE = 29
 
 player_index = W // 2
 
@@ -44,5 +44,8 @@ while True:
     
     line = bord_char * nb_bord + inside + bord_char * nb_bord
     print(line)
+    
+    # VITESSE += randint(0,1) * 2 - 1
+    # VITESSE = max(4, VITESSE)
     
     time.sleep(1 / VITESSE)

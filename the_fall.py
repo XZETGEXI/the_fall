@@ -18,9 +18,23 @@ BORDS_CHARS = ['/'] + ['|'] * 5 + ['\\']
 
 bords = cycle(BORDS_CHARS)
 
-CHAR_CHARS = ['ö', 'ö', 'ö']
+CHAR_CHARS = ['ö', 'ö']
 
 char = cycle(CHAR_CHARS)
+
+TAILLE_CHAR = 1
+
+vitesse_aleatoire = input('Vitesse aléatoire ? (0/1) ')
+
+hypno_mode = input('Hypno mode ? (0/1) ')
+
+if hypno_mode:
+    MILIEU_CHAR = '_'
+else:
+    MILIEU_CHAR = '.'
+
+
+
 
 while True:
     direction = randint(0,1) * 2 - 1
@@ -35,17 +49,18 @@ while True:
     
     player_index += randint(0,1) * 2 - 1
     player_index = max(0, player_index)
-    player_index = min(nb_milieu - 1, player_index)
+    player_index = min(nb_milieu - TAILLE_CHAR, player_index)
     
     player = next(char)
     
-    inside = '_' * nb_milieu
-    inside = inside[:player_index] + player + inside[player_index + 1:]
+    inside = MILIEU_CHAR * nb_milieu
+    inside = inside[:player_index] + player + inside[player_index + TAILLE_CHAR:]
     
     line = bord_char * nb_bord + inside + bord_char * nb_bord
     print(line)
     
-    # VITESSE += randint(0,1) * 2 - 1
-    # VITESSE = max(4, VITESSE)
+    if vitesse_aleatoire:
+        VITESSE += randint(0,1) * 2 - 1
+        VITESSE = max(4, VITESSE)
     
     time.sleep(1 / VITESSE)

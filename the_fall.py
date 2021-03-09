@@ -8,11 +8,11 @@ W, H = os.get_terminal_size()
 
 nb_bord = 0
 
-MAX_LEN = W //2
+MAX_LEN = W // 2
 
 VITESSE = 25
 
-player_index = 0
+player_index = W // 2
 
 BORDS_CHARS = ['/'] + ['|'] * 5 + ['\\']
 

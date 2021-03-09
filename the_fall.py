@@ -6,7 +6,7 @@ from itertools import cycle
 
 W, H = os.get_terminal_size()
 
-nb_bord = 0
+nb_bord = W // 2
 
 MAX_LEN = W // 2
 
